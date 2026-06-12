@@ -1,0 +1,37 @@
+{
+  "generated": "2026-06-12",
+  "repo_url": "https://github.com/dcuenot/veille-quiz",
+  "count": 2,
+  "questions": [
+    {
+      "id": "fallow-1",
+      "category": "Dev / CI",
+      "source_slug": "fallow",
+      "question": "Quelle est la principale limite de l'analyse de Fallow par rapport à un outil comme knip ?",
+      "choices": [
+        "Il ne supporte que le langage Rust",
+        "Il est purement syntaxique (pas de type-checker), donc rate ce qui dépend des types",
+        "Il nécessite une base de données vectorielle",
+        "Il ne fonctionne qu'en CI cloud payante"
+      ],
+      "answer": 1,
+      "explanation": "Fallow fait de l'analyse statique déterministe TS/JS mais syntaxique uniquement : ce qui exige un type-checker (narrowing cross-module, types conditionnels) est hors de sa portée. C'est ce qui le rend rapide, au prix de cet angle mort.",
+      "more": {"label": "fallow-rs/fallow", "url": "https://github.com/fallow-rs/fallow"}
+    },
+    {
+      "id": "graphify-1",
+      "category": "IA / Agents",
+      "source_slug": "graphify",
+      "question": "Que produit Graphify à partir d'un dossier de code ou de documentation ?",
+      "choices": [
+        "Un binaire optimisé",
+        "Un graphe de connaissances interrogeable (avec serveur MCP)",
+        "Des tests unitaires automatiques",
+        "Un rapport de couverture de code"
+      ],
+      "answer": 1,
+      "explanation": "Graphify transforme code/doc/médias en graphe de connaissances interrogeable (graph.html, GRAPH_REPORT.md, graph.json), exposé aux assistants IA via un serveur MCP.",
+      "more": {"label": "safishamsi/graphify", "url": "https://github.com/safishamsi/graphify"}
+    }
+  ]
+}
