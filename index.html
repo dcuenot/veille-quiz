@@ -2,9 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Quiz Veille — teste tes connaissances</title>
 <meta name="description" content="Quiz quotidien sur la veille tech : agents IA, outillage dev, design, sécurité. Auto-généré.">
+<meta name="theme-color" content="#0f1115">
 <style>
   :root{
     --bg:#0f1115; --panel:#171a21; --panel-2:#1d212b; --line:#272c38;
@@ -18,15 +19,17 @@
     background:radial-gradient(1200px 600px at 50% -10%,#1a1f2b 0%,var(--bg) 60%) fixed;
     color:var(--ink); font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
     -webkit-font-smoothing:antialiased; min-height:100vh;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom));
   }
-  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 24px}
   header{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
   h1{font-size:1.5rem;margin:0;letter-spacing:-.02em}
   .sub{color:var(--muted);font-size:.9rem}
   .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 8px}
   select,button{font:inherit;color:var(--ink);background:var(--panel-2);border:1px solid var(--line);
-    border-radius:10px;padding:9px 12px;cursor:pointer;transition:.15s}
+    border-radius:10px;padding:9px 12px;cursor:pointer;transition:transform .08s,border-color .15s,filter .15s}
   select:hover,button:hover{border-color:#3a4255}
+  button:active{transform:translateY(1px) scale(.99)}
   .spacer{flex:1}
   .pill{font-size:.8rem;color:var(--muted);background:var(--panel);border:1px solid var(--line);
     border-radius:999px;padding:6px 12px}
@@ -38,30 +41,40 @@
   .q{font-size:1.18rem;font-weight:600;margin:2px 0 18px;letter-spacing:-.01em}
   .choices{display:flex;flex-direction:column;gap:10px}
   .choice{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
-    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+    transition:transform .08s,border-color .15s,background .15s}
   .choice:not(:disabled):hover{border-color:#3a4255;transform:translateY(-1px)}
+  .choice:not(:disabled):active{transform:scale(.985)}
   .choice .key{flex:0 0 22px;height:22px;border-radius:6px;background:var(--panel-2);border:1px solid var(--line);
     display:grid;place-items:center;font-size:.78rem;color:var(--muted);margin-top:1px}
-  .choice.correct{border-color:var(--ok);background:#0e2018}
+  .choice.correct{border-color:var(--ok);background:#0e2018;animation:pulse .55s ease-out}
   .choice.correct .key{background:var(--ok);color:#062417;border-color:var(--ok)}
-  .choice.wrong{border-color:var(--ko);background:#23121280}
+  .choice.wrong{border-color:var(--ko);background:#23121280;animation:shake .3s ease}
   .choice.wrong .key{background:var(--ko);color:#2a0b0b;border-color:var(--ko)}
   .choice:disabled{cursor:default;opacity:1}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.45)}100%{box-shadow:0 0 0 16px rgba(52,211,153,0)}}
+  @keyframes shake{25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
   .explain{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);display:none}
   .explain.show{display:block;animation:fade .2s ease}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
   .explain p{margin:0 0 12px;color:#d6dbe6}
   .more a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid #3c4a1f;padding-bottom:1px}
   .more a:hover{border-color:var(--accent-2)}
-  .foot{display:flex;gap:10px;align-items:center;margin-top:18px}
-  .primary{background:var(--accent);color:#04222e;border-color:transparent;font-weight:600}
-  .primary:hover{filter:brightness(1.06)}
-  .score{color:var(--muted);font-size:.9rem}
   .empty{color:var(--muted);text-align:center;padding:40px 0}
-  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:34px}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:22px}
   footer a{color:var(--muted)}
   .progress{height:4px;background:var(--panel);border-radius:999px;overflow:hidden;margin-top:10px}
   .progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width .25s}
+  /* Barre d'action collante (toujours sous le pouce) */
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:rgba(15,17,21,.82);-webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%);
+    border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+  .actionbar .inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  .actionbar .verdict{font-size:.92rem;font-weight:600}
+  .actionbar .verdict.ok{color:var(--ok)} .actionbar .verdict.ko{color:var(--ko)}
+  .actionbar .score{color:var(--muted);font-size:.85rem}
+  .actionbar .primary{margin-left:auto;background:var(--accent);color:#04222e;border-color:transparent;font-weight:600;padding:13px 18px}
+  .actionbar .primary:hover{filter:brightness(1.06)}
 </style>
 </head>
 <body>
@@ -82,14 +95,21 @@
 
   <div id="stage"></div>
 
-  <footer>
-    Auto-généré depuis ma base de veille · <a id="repo" href="#">code</a> · <span id="score" class="score"></span>
-  </footer>
+  <footer>Auto-généré depuis ma base de veille · <a id="repo" href="#">code</a></footer>
+</div>
+
+<div class="actionbar">
+  <div class="inner">
+    <span class="verdict" id="verdict"></span>
+    <span class="score" id="score"></span>
+    <button class="primary" id="next">Question suivante →</button>
+  </div>
 </div>
 
 <script>
 const state={all:[],deck:[],i:0,score:0,answered:0,cat:""};
 const $=s=>document.querySelector(s);
+const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
 
 function catList(qs){return [...new Set(qs.map(q=>q.category))].sort();}
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -101,6 +121,7 @@ function buildDeck(){
 
 function render(){
   const stage=$("#stage");
+  $("#verdict").textContent="";$("#verdict").className="verdict";
   if(!state.deck.length){stage.innerHTML='<div class="empty">Aucune question pour cette catégorie.</div>';update();return;}
   const q=state.deck[state.i];
   const keys=["A","B","C","D","E"];
@@ -116,37 +137,33 @@ function render(){
         <p id="exp"></p>
         ${q.more&&q.more.url?`<div class="more">Pour aller plus loin → <a href="${q.more.url}" target="_blank" rel="noopener">${q.more.label||q.more.url}</a></div>`:""}
       </div>
-      <div class="foot">
-        <button class="primary" id="next">Question suivante →</button>
-        <span class="score" id="local"></span>
-      </div>
     </div>`;
   stage.querySelectorAll(".choice").forEach(b=>b.onclick=()=>answer(+b.dataset.i));
-  $("#next").onclick=next;
   update();
 }
 
 function answer(idx){
   const q=state.deck[state.i];
   const btns=[...document.querySelectorAll(".choice")];
-  if(btns[0].disabled)return;
+  if(!btns.length||btns[0].disabled)return;
   btns.forEach(b=>b.disabled=true);
   btns[q.answer].classList.add("correct");
-  if(idx!==q.answer)btns[idx].classList.add("wrong");
-  state.answered++;
-  if(idx===q.answer)state.score++;
+  const good=idx===q.answer;
+  if(!good)btns[idx].classList.add("wrong");
+  buzz(good?18:[10,45,10]);
+  state.answered++; if(good)state.score++;
   $("#exp").textContent=q.explanation||"";
   $("#explain").classList.add("show");
-  $("#local").textContent=idx===q.answer?"Correct ✓":"Raté ✗";
+  const v=$("#verdict");v.textContent=good?"Correct ✓":"Raté ✗";v.className="verdict "+(good?"ok":"ko");
   update();
 }
 
-function next(){state.i=(state.i+1)%state.deck.length;render();}
+function next(){buzz(8);state.i=(state.i+1)%state.deck.length;render();window.scrollTo({top:0,behavior:"smooth"});}
 
 function update(){
   $("#counter").textContent=state.deck.length?`${state.i+1} / ${state.deck.length}`:"0";
   $("#bar").style.width=state.deck.length?`${(state.i/state.deck.length)*100}%`:"0";
-  $("#score").textContent=state.answered?`Score : ${state.score}/${state.answered}`:"";
+  $("#score").textContent=state.answered?`${state.score}/${state.answered}`:"";
 }
 
 fetch("./quiz.json?_="+Date.now()).then(r=>r.json()).then(data=>{
@@ -157,6 +174,7 @@ fetch("./quiz.json?_="+Date.now()).then(r=>r.json()).then(data=>{
   catList(state.all).forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;sel.appendChild(o);});
   sel.onchange=()=>{state.cat=sel.value;buildDeck();};
   $("#shuffle").onclick=buildDeck;
+  $("#next").onclick=next;
   buildDeck();
 }).catch(e=>{$("#stage").innerHTML='<div class="empty">Impossible de charger le quiz (quiz.json).</div>';});
 </script>
