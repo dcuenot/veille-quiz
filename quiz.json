@@ -1,7 +1,7 @@
 {
   "generated": "2026-06-12",
   "repo_url": "https://github.com/dcuenot/veille-quiz",
-  "count": 2,
+  "count": 15,
   "questions": [
     {
       "id": "fallow-1",
@@ -16,7 +16,10 @@
       ],
       "answer": 1,
       "explanation": "Fallow fait de l'analyse statique déterministe TS/JS mais syntaxique uniquement : ce qui exige un type-checker (narrowing cross-module, types conditionnels) est hors de sa portée. C'est ce qui le rend rapide, au prix de cet angle mort.",
-      "more": {"label": "fallow-rs/fallow", "url": "https://github.com/fallow-rs/fallow"}
+      "more": {
+        "label": "fallow-rs/fallow",
+        "url": "https://github.com/fallow-rs/fallow"
+      }
     },
     {
       "id": "graphify-1",
@@ -31,7 +34,244 @@
       ],
       "answer": 1,
       "explanation": "Graphify transforme code/doc/médias en graphe de connaissances interrogeable (graph.html, GRAPH_REPORT.md, graph.json), exposé aux assistants IA via un serveur MCP.",
-      "more": {"label": "safishamsi/graphify", "url": "https://github.com/safishamsi/graphify"}
+      "more": {
+        "label": "safishamsi/graphify",
+        "url": "https://github.com/safishamsi/graphify"
+      }
+    },
+    {
+      "id": "aitmpl-mobile-design-0",
+      "category": "Design",
+      "source_slug": "aitmpl-mobile-design",
+      "question": "Quel principe directeur resume le skill Claude Code \"Mobile Design\" ?",
+      "choices": [
+        "\"Touch-first, Battery-conscious, Platform-respectful, Offline-capable\"",
+        "\"Mobile-first, SEO-friendly, Cloud-native, Stateless\"",
+        "\"Desktop-first, Accessible, Responsive, Secure\"",
+        "\"API-first, Serverless, Event-driven, Cacheable\""
+      ],
+      "answer": 0,
+      "explanation": "Le skill guide la conception d'apps mobiles de qualite pro selon le principe \"Touch-first, Battery-conscious, Platform-respectful, Offline-capable\".",
+      "more": {
+        "label": "aitmpl.com",
+        "url": "https://aitmpl.com/component/skill/creative-design/mobile-design"
+      }
+    },
+    {
+      "id": "aitmpl-mobile-design-1",
+      "category": "Design",
+      "source_slug": "aitmpl-mobile-design",
+      "question": "Selon la Loi de Fitts mise en avant par ce skill, quelle est la taille minimale recommandee pour une cible tactile ?",
+      "choices": [
+        "Environ 8-12 px",
+        "Environ 24 px",
+        "Environ 44-48 px",
+        "Environ 96 px"
+      ],
+      "answer": 2,
+      "explanation": "Le skill applique la Loi de Fitts en recommandant des cibles tactiles d'au moins 44-48 px pour rester confortablement atteignables au doigt.",
+      "more": {
+        "label": "aitmpl.com",
+        "url": "https://aitmpl.com/component/skill/creative-design/mobile-design"
+      }
+    },
+    {
+      "id": "anthropic-labor-market-impacts-2",
+      "category": "IA / Carriere",
+      "source_slug": "anthropic-labor-market-impacts",
+      "question": "Que combine la mesure d'\"observed exposure\" introduite par l'Anthropic Economic Index ?",
+      "choices": [
+        "La capacite theorique des LLM et l'usage reel de Claude",
+        "Le nombre de licenciements et la croissance du PIB",
+        "Le salaire moyen et le taux de chomage par secteur",
+        "Le cout des modeles et leur empreinte carbone"
+      ],
+      "answer": 0,
+      "explanation": "L'\"observed exposure\" croise la capacite theorique des LLM avec l'usage reel de Claude ; le constat est que l'usage reel ne represente qu'une fraction du faisable.",
+      "more": {
+        "label": "anthropic.com",
+        "url": "https://www.anthropic.com/research/labor-market-impacts"
+      }
+    },
+    {
+      "id": "anthropic-labor-market-impacts-3",
+      "category": "IA / Carriere",
+      "source_slug": "anthropic-labor-market-impacts",
+      "question": "D'apres cette etude, quel metier presente l'exposition maximale a l'IA en part de taches ?",
+      "choices": [
+        "Les cuisiniers",
+        "Les programmeurs informatiques (75 % des taches)",
+        "Les mecaniciens",
+        "Les agents de saisie de donnees"
+      ],
+      "answer": 1,
+      "explanation": "Les programmeurs informatiques arrivent en tete avec environ 75 % des taches exposees, devant le service client et la saisie de donnees ; a l'inverse 30 % des travailleurs ont une exposition nulle.",
+      "more": {
+        "label": "anthropic.com",
+        "url": "https://www.anthropic.com/research/labor-market-impacts"
+      }
+    },
+    {
+      "id": "anthropics-skills-4",
+      "category": "IA / Agents",
+      "source_slug": "anthropics-skills",
+      "question": "Quelle est la structure minimale d'une Agent Skill selon le depot officiel Anthropic ?",
+      "choices": [
+        "Un fichier SKILL.md avec frontmatter name + description",
+        "Un Dockerfile et un manifeste JSON",
+        "Un notebook Jupyter et un requirements.txt",
+        "Un fichier YAML de configuration MCP"
+      ],
+      "answer": 0,
+      "explanation": "Une skill minimale est un fichier SKILL.md dont le frontmatter contient les champs obligatoires name et description, suivis des instructions, exemples et guidelines.",
+      "more": {
+        "label": "github.com/anthropics/skills",
+        "url": "https://github.com/anthropics/skills"
+      }
+    },
+    {
+      "id": "anthropics-skills-5",
+      "category": "IA / Agents",
+      "source_slug": "anthropics-skills",
+      "question": "Que contient le dossier ./spec du depot Anthropic Skills ?",
+      "choices": [
+        "Les binaires compiles de Claude Code",
+        "La specification standard Agent Skills (agentskills.io)",
+        "Une suite de benchmarks de performance",
+        "Les credentials d'API d'exemple"
+      ],
+      "answer": 1,
+      "explanation": "Le dossier ./spec heberge la specification standard Agent Skills (agentskills.io), tandis que ./template fournit un squelette pour creer ses propres skills.",
+      "more": {
+        "label": "github.com/anthropics/skills",
+        "url": "https://github.com/anthropics/skills"
+      }
+    },
+    {
+      "id": "awesome-claude-code-6",
+      "category": "IA / Agents",
+      "source_slug": "awesome-claude-code",
+      "question": "Qu'est-ce que le depot \"Awesome Claude Code\" ?",
+      "choices": [
+        "Un package npm installable qui ajoute des agents a Claude Code",
+        "Une liste curatee (index) de ressources autour de Claude Code",
+        "Un fork officiel de Claude Code maintenu par Anthropic",
+        "Un service cloud d'hebergement d'agents"
+      ],
+      "answer": 1,
+      "explanation": "C'est une \"awesome-list\" : un index curate de skills, slash commands, hooks, orchestrateurs et fichiers CLAUDE.md. Ce n'est pas une lib installable, mais un catalogue dont chaque ressource doit etre verifiee avant adoption.",
+      "more": {
+        "label": "github.com/hesreallyhim/awesome-claude-code",
+        "url": "https://github.com/hesreallyhim/awesome-claude-code"
+      }
+    },
+    {
+      "id": "claude-code-docker-sandbox-7",
+      "category": "Securite",
+      "source_slug": "claude-code-docker-sandbox",
+      "question": "Quelle solution l'article propose-t-il pour garder sa config ~/.claude dans un Docker Sandbox isole ?",
+      "choices": [
+        "Copier les credentials dans une variable d'environnement",
+        "Monter ~/.claude dans le conteneur puis creer un lien symbolique",
+        "Reconstruire l'image Docker a chaque session",
+        "Desactiver le sandbox et lancer Claude Code sur l'hote"
+      ],
+      "answer": 1,
+      "explanation": "On monte le repertoire ~/.claude dans le conteneur puis on cree un lien symbolique a l'emplacement attendu, ce qui permet de tourner en mode YOLO sandboxe sans perdre skills, historique et credentials.",
+      "more": {
+        "label": "emmanuelbernard.com",
+        "url": "https://emmanuelbernard.com/blog/2026/02/26/claude-code-docker-sandbox/"
+      }
+    },
+    {
+      "id": "claude-code-docker-sandbox-8",
+      "category": "Securite",
+      "source_slug": "claude-code-docker-sandbox",
+      "question": "Pourquoi le repertoire ~/.claude ne peut-il pas etre monte en lecture seule dans ce montage ?",
+      "choices": [
+        "Parce que Claude Code y ecrit ses credentials apres authentification",
+        "Parce que Docker interdit les montages en lecture seule",
+        "Parce qu'il contient des fichiers binaires volumineux",
+        "Parce que le lien symbolique exige des droits root"
+      ],
+      "answer": 0,
+      "explanation": "Claude Code stocke ses credentials dans ~/.claude apres authentification : le montage doit donc rester accessible en ecriture, ce qui limite par ailleurs l'isolation reelle du sandbox.",
+      "more": {
+        "label": "emmanuelbernard.com",
+        "url": "https://emmanuelbernard.com/blog/2026/02/26/claude-code-docker-sandbox/"
+      }
+    },
+    {
+      "id": "claude-code-templates-9",
+      "category": "IA / Agents",
+      "source_slug": "claude-code-templates",
+      "question": "Comment installe-t-on un composant de Claude Code Templates ?",
+      "choices": [
+        "En clonant entierement le depot puis en compilant",
+        "A la carte via npx, sans cloner le repo",
+        "Via un installeur graphique macOS uniquement",
+        "En l'achetant sur un marketplace payant"
+      ],
+      "answer": 1,
+      "explanation": "Le catalogue (100+ agents, commandes, MCP, hooks, settings) s'installe a la carte via npx, sans avoir a cloner le depot.",
+      "more": {
+        "label": "github.com/davila7/claude-code-templates",
+        "url": "https://github.com/davila7/claude-code-templates"
+      }
+    },
+    {
+      "id": "cli-anything-10",
+      "category": "IA / Agents",
+      "source_slug": "cli-anything",
+      "question": "Que fait principalement CLI-Anything ?",
+      "choices": [
+        "Il transforme automatiquement n'importe quel logiciel en CLI agent-native a sortie JSON",
+        "Il compile des applications mobiles en binaires natifs",
+        "Il heberge des modeles LLM en local",
+        "Il convertit des CLI en interfaces graphiques"
+      ],
+      "answer": 0,
+      "explanation": "CLI-Anything genere automatiquement des interfaces CLI pour des logiciels existants (via un pipeline en 7 phases), avec une sortie JSON structuree pensee pour etre consommee par des agents IA.",
+      "more": {
+        "label": "github.com/HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything"
+      }
+    },
+    {
+      "id": "cli-anything-11",
+      "category": "IA / Agents",
+      "source_slug": "cli-anything",
+      "question": "Qu'est-ce que \"CLI-Hub\" dans l'ecosysteme CLI-Anything ?",
+      "choices": [
+        "Un editeur visuel de commandes",
+        "Un registre centralise pour decouvrir et installer des CLIs",
+        "Un service de monitoring des agents",
+        "Un format de fichier de configuration"
+      ],
+      "answer": 1,
+      "explanation": "CLI-Hub est un registre centralise permettant de decouvrir et installer des CLIs generees (ex. cli-hub list, cli-hub install <nom>).",
+      "more": {
+        "label": "github.com/HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything"
+      }
+    },
+    {
+      "id": "cmux-12",
+      "category": "Dev",
+      "source_slug": "cmux",
+      "question": "Qu'est-ce que cmux ?",
+      "choices": [
+        "Un multiplexeur de terminal en ligne de commande facon tmux",
+        "Une app macOS de type workspace terminal pour faire tourner plusieurs agents IA de code en onglets et splits",
+        "Un service cloud d'execution d'agents Claude",
+        "Une extension VS Code pour Claude Code"
+      ],
+      "answer": 1,
+      "explanation": "cmux est une app native macOS de type \"workspace terminal\" (terminaux bases sur ghostty) qui heberge en onglets et splits plusieurs agents IA de code comme Claude Code et Grok.",
+      "more": {
+        "label": "github.com/manaflow-ai/cmux",
+        "url": "https://github.com/manaflow-ai/cmux"
+      }
     }
   ]
 }
