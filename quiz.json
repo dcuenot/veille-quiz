@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-12",
+  "generated": "2026-06-13",
   "repo_url": "https://github.com/dcuenot/veille-quiz",
-  "count": 16,
+  "count": 29,
   "questions": [
     {
       "id": "fallow-1",
@@ -289,6 +289,240 @@
       "more": {
         "label": "cmux (GitHub)",
         "url": "https://github.com/manaflow-ai/cmux"
+      }
+    },
+    {
+      "id": "context7-0",
+      "category": "IA / Agents",
+      "source_slug": "context7",
+      "question": "Quel est le rôle principal de Context7 ?",
+      "choices": [
+        "Un serveur MCP qui injecte de la documentation de code à jour et spécifique à la version dans le contexte des agents IA",
+        "Un hébergeur de bases de données vectorielles pour le RAG",
+        "Un linter qui corrige automatiquement le code généré par un LLM",
+        "Un proxy qui réduit la consommation de tokens des appels LLM"
+      ],
+      "answer": 0,
+      "explanation": "Context7 récupère de la documentation à jour et spécifique à la version de la librairie pour l'injecter directement dans le contexte de l'agent, au lieu de s'appuyer sur les données d'entraînement potentiellement périmées du LLM.",
+      "more": {
+        "label": "Context7 sur GitHub",
+        "url": "https://github.com/upstash/context7"
+      }
+    },
+    {
+      "id": "context7-1",
+      "category": "IA / Agents",
+      "source_slug": "context7",
+      "question": "Quel problème Context7 cherche-t-il principalement à éviter lors de la génération de code ?",
+      "choices": [
+        "Les API hallucinées et les exemples obsolètes",
+        "Les fuites de secrets dans les commits",
+        "Les conflits de merge Git",
+        "Le dépassement de la fenêtre de contexte"
+      ],
+      "answer": 0,
+      "explanation": "En fournissant la doc réelle de la version utilisée, Context7 permet de générer du code avec des API actuelles et d'éviter les API hallucinées comme les exemples périmés.",
+      "more": {
+        "label": "Context7 sur GitHub",
+        "url": "https://github.com/upstash/context7"
+      }
+    },
+    {
+      "id": "crucix-2",
+      "category": "Sécurité / OSINT",
+      "source_slug": "crucix",
+      "question": "Qu'est-ce que Crucix ?",
+      "choices": [
+        "Une plateforme self-hosted d'agrégation de renseignement qui surveille les conditions mondiales via 27 sources open-source sur un dashboard unifié",
+        "Un scanner de vulnérabilités pour conteneurs Docker",
+        "Un gestionnaire de mots de passe chiffré de bout en bout",
+        "Un pare-feu applicatif web (WAF) open-source"
+      ],
+      "answer": 0,
+      "explanation": "Crucix est une plateforme OSINT auto-hébergée qui agrège 27 sources open-source (imagerie satellite, flight tracking, indicateurs économiques, sanctions...) et les affiche sur un dashboard temps réel avec globe 3D.",
+      "more": {
+        "label": "Crucix sur GitHub",
+        "url": "https://github.com/calesthio/Crucix"
+      }
+    },
+    {
+      "id": "crucix-3",
+      "category": "Sécurité / OSINT",
+      "source_slug": "crucix",
+      "question": "Comment le dashboard de Crucix se met-il à jour en continu ?",
+      "choices": [
+        "Auto-refresh toutes les 15 minutes via server-sent events (SSE)",
+        "Polling manuel déclenché par l'utilisateur uniquement",
+        "Webhooks entrants poussés par chaque source",
+        "Rechargement complet de la page toutes les heures"
+      ],
+      "answer": 0,
+      "explanation": "Crucix rafraîchit ses données automatiquement toutes les 15 minutes via des server-sent events (SSE), avec un suivi de delta qui identifie ce qui a changé entre deux balayages.",
+      "more": {
+        "label": "Crucix sur GitHub",
+        "url": "https://github.com/calesthio/Crucix"
+      }
+    },
+    {
+      "id": "everything-claude-code-4",
+      "category": "IA / Agents",
+      "source_slug": "everything-claude-code",
+      "question": "Que propose le projet everything-claude-code (ECC) ?",
+      "choices": [
+        "Une couche complète de skills, agents, règles, hooks et configs MCP pour optimiser les harnais d'agents de code",
+        "Un IDE web concurrent de VS Code spécialisé pour l'IA",
+        "Un modèle de langage open-weight entraîné sur du code",
+        "Un service cloud de facturation des appels à Claude"
+      ],
+      "answer": 0,
+      "explanation": "ECC fournit une base prête à l'emploi pour les agents de code (64 agents, 261 skills, hooks, règles multi-langages, configs MCP), issue de plus de 10 mois d'usage en production.",
+      "more": {
+        "label": "everything-claude-code sur GitHub",
+        "url": "https://github.com/affaan-m/everything-claude-code"
+      }
+    },
+    {
+      "id": "everything-claude-code-5",
+      "category": "IA / Agents",
+      "source_slug": "everything-claude-code",
+      "question": "Quelle est une limite mise en avant à propos de l'adoption d'ECC ?",
+      "choices": [
+        "Très volumineux (261 skills, 64 agents), à piocher sélectivement plutôt qu'à installer en bloc",
+        "Réservé exclusivement à Windows",
+        "Sous licence propriétaire payante",
+        "Incompatible avec tout autre harnais que Claude Code"
+      ],
+      "answer": 0,
+      "explanation": "ECC est très volumineux et opiniâtre : installer tout en bloc risque de polluer le contexte et de dupliquer ses propres conventions ; mieux vaut cherry-picker. Il est par ailleurs sous licence MIT et cross-harnais.",
+      "more": {
+        "label": "everything-claude-code sur GitHub",
+        "url": "https://github.com/affaan-m/everything-claude-code"
+      }
+    },
+    {
+      "id": "flipboard-nowtechtv-6",
+      "category": "Veille",
+      "source_slug": "flipboard-nowtechtv",
+      "question": "Qu'est-ce que le magazine Flipboard nowtech (@jkeinborg) ?",
+      "choices": [
+        "Un magazine curé qui agrège l'actualité tech francophone grand public",
+        "Un flux RSS dédié à la sécurité offensive et au pentest",
+        "Une newsletter payante sur l'investissement boursier",
+        "Un dépôt GitHub de templates d'agents IA"
+      ],
+      "answer": 0,
+      "explanation": "C'est un magazine Flipboard curé par Jérôme Keinborg qui rassemble l'actualité tech francophone grand public (01net, Numerama, Frandroid, Jeuxvideo.com), lié à l'émission #LeMugNowtech.",
+      "more": {
+        "label": "Magazine nowtech sur Flipboard",
+        "url": "https://flipboard.com/@jkeinborg/nowtechtv-ogcbmgbby"
+      }
+    },
+    {
+      "id": "gemma-7",
+      "category": "IA / Modèles locaux",
+      "source_slug": "gemma",
+      "question": "Qu'est-ce que Gemma ?",
+      "choices": [
+        "Une famille de modèles de langage ouverts (open-weight) de Google, conçue pour tourner en local",
+        "Une API cloud propriétaire de Google facturée au token",
+        "Un framework JavaScript de génération d'interfaces",
+        "Un service de modération de contenu pour réseaux sociaux"
+      ],
+      "answer": 0,
+      "explanation": "Gemma est une famille de modèles open-weight de Google, exécutables on-device via Ollama, llama.cpp ou LM Studio (formats GGUF), sans clé API ni coût par token.",
+      "more": {
+        "label": "Gemma (Google AI)",
+        "url": "https://ai.google.dev/gemma"
+      }
+    },
+    {
+      "id": "gemma-8",
+      "category": "IA / Modèles locaux",
+      "source_slug": "gemma",
+      "question": "Dans quel cas la fiche déconseille-t-elle de compter sur Gemma ?",
+      "choices": [
+        "Pour du raisonnement lourd ou agentique complexe, où un modèle frontier reste supérieur",
+        "Pour le traitement local et privé de données",
+        "Pour du prototypage hors-ligne",
+        "Pour des tâches répétitives à coût nul"
+      ],
+      "answer": 0,
+      "explanation": "Gemma est présenté comme un complément local et non un remplaçant : pour du raisonnement lourd ou agentique complexe, un modèle frontier (type Claude) reste supérieur.",
+      "more": {
+        "label": "Gemma (Google AI)",
+        "url": "https://ai.google.dev/gemma"
+      }
+    },
+    {
+      "id": "google-stitch-9",
+      "category": "Design",
+      "source_slug": "google-stitch",
+      "question": "Que fait Google Stitch ?",
+      "choices": [
+        "Il génère des écrans et designs d'UI à partir de prompts texte ou d'images de référence",
+        "Il convertit des fichiers Figma en PDF imprimables",
+        "Il héberge et déploie des applications front-end",
+        "Il teste l'accessibilité des sites web"
+      ],
+      "answer": 0,
+      "explanation": "Stitch, un outil Google Labs, génère des écrans d'UI à partir d'une description texte (et/ou d'une image), permet d'itérer sur le design et d'exporter vers du code front ou Figma.",
+      "more": {
+        "label": "Google Stitch",
+        "url": "https://stitch.withgoogle.com"
+      }
+    },
+    {
+      "id": "googleworkspace-cli-10",
+      "category": "Productivité / CLI",
+      "source_slug": "googleworkspace-cli",
+      "question": "Qu'est-ce que la Google Workspace CLI (gws) ?",
+      "choices": [
+        "Une CLI en Rust offrant un accès unifié aux APIs Google Workspace avec une sortie JSON structurée",
+        "Une extension de navigateur pour bloquer les publicités dans Gmail",
+        "Un service managé de sauvegarde chiffrée de Google Drive",
+        "Un client de bureau open-source pour Google Agenda"
+      ],
+      "answer": 0,
+      "explanation": "gws est une CLI écrite en Rust qui unifie l'accès aux APIs Workspace (Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin) avec une sortie JSON pensée pour les humains comme pour les agents IA.",
+      "more": {
+        "label": "Google Workspace CLI sur GitHub",
+        "url": "https://github.com/googleworkspace/cli"
+      }
+    },
+    {
+      "id": "googleworkspace-cli-11",
+      "category": "Productivité / CLI",
+      "source_slug": "googleworkspace-cli",
+      "question": "Quelle caractéristique permet à gws de reprendre automatiquement les nouveaux endpoints des APIs Google ?",
+      "choices": [
+        "La découverte dynamique des APIs construite à partir du Google Discovery Service",
+        "Un fichier de configuration YAML mis à jour à la main",
+        "Un scraping périodique de la documentation HTML de Google",
+        "Une dépendance directe au SDK officiel en Python"
+      ],
+      "answer": 0,
+      "explanation": "gws s'appuie sur le Google Discovery Service pour découvrir dynamiquement les APIs : les nouveaux endpoints sont repris automatiquement, sans modification manuelle.",
+      "more": {
+        "label": "Google Workspace CLI sur GitHub",
+        "url": "https://github.com/googleworkspace/cli"
+      }
+    },
+    {
+      "id": "gsd-2-12",
+      "category": "IA / Agents",
+      "source_slug": "gsd-2",
+      "question": "Quel est l'objectif du système GSD 2 (GSD Pi) ?",
+      "choices": [
+        "Permettre aux agents IA de travailler longtemps en autonomie sans perdre la vue d'ensemble, via méta-prompting, context engineering et spec-driven development",
+        "Compiler du TypeScript vers du WebAssembly performant",
+        "Orchestrer des conteneurs Kubernetes en production",
+        "Générer des jeux de données synthétiques pour l'entraînement de modèles"
+      ],
+      "answer": 0,
+      "explanation": "GSD 2 combine méta-prompting, context engineering et développement dirigé par les spécifications pour que les agents IA gardent le cap sur l'objectif global lors de sessions autonomes longues.",
+      "more": {
+        "label": "GSD 2 sur GitHub",
+        "url": "https://github.com/gsd-build/gsd-2"
       }
     }
   ]
