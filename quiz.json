@@ -1,7 +1,7 @@
 {
   "generated": "2026-06-13",
   "repo_url": "https://github.com/dcuenot/veille-quiz",
-  "count": 29,
+  "count": 49,
   "questions": [
     {
       "id": "fallow-1",
@@ -524,6 +524,286 @@
         "label": "GSD 2 sur GitHub",
         "url": "https://github.com/gsd-build/gsd-2"
       }
+    },
+    {
+      "id": "livre-accelerate-forsgren-humble-kim-0",
+      "category": "Dev / DevOps",
+      "source_slug": "livre-accelerate-forsgren-humble-kim",
+      "question": "Selon Accelerate, quelles sont les quatre mesures de la performance de livraison logicielle (DORA) ?",
+      "choices": [
+        "Lignes de code, vélocité, nombre de bugs, couverture de tests",
+        "NPS, churn, ARR, temps de réponse du support",
+        "Story points, burndown, taux d'occupation, nombre de releases",
+        "Lead time, fréquence de déploiement, MTTR, change fail rate"
+      ],
+      "answer": 3,
+      "explanation": "Accelerate définit quatre mesures (deux de tempo, deux de stabilité) pour éviter le piège des métriques locales comme les lignes de code ou la vélocité."
+    },
+    {
+      "id": "livre-accelerate-forsgren-humble-kim-1",
+      "category": "Dev / DevOps",
+      "source_slug": "livre-accelerate-forsgren-humble-kim",
+      "question": "Quelle est la thèse centrale d'Accelerate sur le rapport entre vitesse et stabilité de livraison ?",
+      "choices": [
+        "Ce n'est pas un compromis : les high performers ont les deux à la fois",
+        "Seule la fréquence de déploiement compte vraiment",
+        "Il faut sacrifier la vitesse pour gagner en stabilité",
+        "La stabilité n'a aucun impact sur la performance business"
+      ],
+      "answer": 0,
+      "explanation": "Le livre démontre statistiquement que vitesse et stabilité progressent ensemble : les organisations performantes excellent sur les deux."
+    },
+    {
+      "id": "livre-the-phoenix-project-kim-behr-spafford-2",
+      "category": "Dev / DevOps",
+      "source_slug": "livre-the-phoenix-project-kim-behr-spafford",
+      "question": "Dans The Phoenix Project, quel est le 4e type de travail, cet « anti-work » qui dévore la capacité des trois autres ?",
+      "choices": [
+        "Les projets métier",
+        "Les changements (changes)",
+        "Le travail non planifié (incidents, fire-fighting)",
+        "Les projets IT internes"
+      ],
+      "answer": 2,
+      "explanation": "Le travail non planifié (recovery) se fait toujours au détriment des trois autres types ; chez Parts Unlimited il consommait plus de 75 % de la capacité."
+    },
+    {
+      "id": "livre-the-phoenix-project-kim-behr-spafford-3",
+      "category": "Dev / DevOps",
+      "source_slug": "livre-the-phoenix-project-kim-behr-spafford",
+      "question": "Quels sont, dans l'ordre, les « Three Ways » qui structurent The Phoenix Project ?",
+      "choices": [
+        "Identifier, Exploiter, Élever",
+        "Mesurer, Automatiser, Partager",
+        "Plan, Build, Run",
+        "Flux, Feedback, Apprentissage continu"
+      ],
+      "answer": 3,
+      "explanation": "Erik distille les Three Ways : le flux (gauche vers droite), le feedback (droite vers gauche) et la culture d'apprentissage continu. « Identifier/Exploiter/Élever » relève de la Theory of Constraints."
+    },
+    {
+      "id": "livre-site-reliability-engineering-google-4",
+      "category": "Dev / SRE",
+      "source_slug": "livre-site-reliability-engineering-google",
+      "question": "Dans le livre SRE de Google, comment se calcule l'« error budget » ?",
+      "choices": [
+        "budget = SLA − SLO",
+        "budget = 1 − SLO",
+        "budget = 100 % − taux d'erreur observé",
+        "budget = MTTR / MTBF"
+      ],
+      "answer": 1,
+      "explanation": "L'error budget est l'indisponibilité tolérée : 1 moins le SLO. Tant qu'il n'est pas consommé, les devs livrent librement ; épuisé, on gèle les releases."
+    },
+    {
+      "id": "livre-site-reliability-engineering-google-5",
+      "category": "Dev / SRE",
+      "source_slug": "livre-site-reliability-engineering-google",
+      "question": "Quel plafond de « toil » (travail opérationnel répétitif) le livre SRE de Google fixe-t-il par ingénieur SRE ?",
+      "choices": [
+        "20 %",
+        "50 %",
+        "10 %",
+        "80 %"
+      ],
+      "answer": 1,
+      "explanation": "Un SRE ne doit pas dépasser 50 % de toil ; le reste doit être de l'ingénierie qui élimine du toil futur. Au-delà, l'overflow est réinjecté chez les devs."
+    },
+    {
+      "id": "livre-site-reliability-engineering-google-6",
+      "category": "Dev / SRE",
+      "source_slug": "livre-site-reliability-engineering-google",
+      "question": "Selon le livre SRE de Google, pourquoi viser 100 % de fiabilité n'est-il pas la bonne cible ?",
+      "choices": [
+        "Parce que les utilisateurs préfèrent les services instables",
+        "Parce que les SLA contractuels l'interdisent",
+        "Au-delà d'un seuil, chaque neuf supplémentaire coûte 10× plus pour un bénéfice utilisateur nul",
+        "Parce que 100 % de fiabilité est techniquement impossible à mesurer"
+      ],
+      "answer": 2,
+      "explanation": "Un utilisateur sur un terminal déjà faillible ne distingue pas 99,99 % de 99,999 % : on fixe un SLO plutôt que de viser zéro panne."
+    },
+    {
+      "id": "livre-seeking-sre-blank-edelman-7",
+      "category": "Dev / SRE",
+      "source_slug": "livre-seeking-sre-blank-edelman",
+      "question": "D'après les antipatterns SRE de Seeking SRE, pourquoi « Root Cause = Human Error » est-il un antipattern ?",
+      "choices": [
+        "Parce que les humains ne font jamais d'erreurs en production",
+        "Parce qu'il faut toujours désigner un responsable unique",
+        "La vraie cause d'un incident est systémique, pas la faute d'un individu",
+        "Parce que la cause racine est toujours purement technique"
+      ],
+      "answer": 2,
+      "explanation": "Attribuer un incident à l'erreur humaine masque les défauts systémiques qui ont rendu cette erreur possible."
+    },
+    {
+      "id": "livre-seeking-sre-blank-edelman-8",
+      "category": "Dev / SRE",
+      "source_slug": "livre-seeking-sre-blank-edelman",
+      "question": "Qu'est-ce qui distingue Seeking SRE du livre SRE original de Google ?",
+      "choices": [
+        "C'est un manuel monolithique exposant un seul point de vue",
+        "C'est un roman pédagogique sur les opérations IT",
+        "C'est une étude statistique de 23 000 réponses",
+        "C'est un recueil de conversations de praticiens de plusieurs entreprises"
+      ],
+      "answer": 3,
+      "explanation": "Seeking SRE rassemble ~37 chapitres de praticiens (Google, Spotify, Netflix, Dropbox…), là où le livre Google offre une matrice unique et cohérente."
+    },
+    {
+      "id": "livre-continuous-integration-cd-van-merode-9",
+      "category": "Dev / CI",
+      "source_slug": "livre-continuous-integration-cd-van-merode",
+      "question": "Quelle est la thèse fondatrice du livre de Van Merode sur les pipelines CI/CD ?",
+      "choices": [
+        "Un pipeline est du logiciel : on le conçoit, le teste et le maintient comme une application",
+        "Gitflow est la meilleure stratégie de branchement",
+        "Le CI/CD ne nécessite ni tests ni phase de design",
+        "Un pipeline doit toujours tenir dans un seul fichier YAML"
+      ],
+      "answer": 0,
+      "explanation": "Van Merode insiste : un pipeline a des requirements, un design (BPMN), du code, des tests et un runbook, au lieu d'un YAML bricolé jusqu'à ce que ça passe."
+    },
+    {
+      "id": "livre-continuous-integration-cd-van-merode-10",
+      "category": "Dev / CI",
+      "source_slug": "livre-continuous-integration-cd-van-merode",
+      "question": "Dans le pipeline générique de Van Merode, quel stage marque la fin du CI et le début du CD ?",
+      "choices": [
+        "Publish artifact (dépôt immuable)",
+        "Deploy to test",
+        "Execute build",
+        "Perform dual control"
+      ],
+      "answer": 0,
+      "explanation": "La publication de l'artefact signé dans un dépôt immuable (Artifactory, Nexus, ECR) sépare l'intégration continue de la livraison continue."
+    },
+    {
+      "id": "livre-ai-agents-definitive-guide-11",
+      "category": "IA / Agents",
+      "source_slug": "livre-ai-agents-definitive-guide",
+      "question": "Quelle est la thèse-pivot d'« AI Agents: The Definitive Guide » sur ce qu'est un agent ?",
+      "choices": [
+        "Un agent est une machine à états hiérarchique où l'autonomie est orchestrée",
+        "Un agent est essentiellement une base de données vectorielle",
+        "Un agent n'est rien d'autre qu'un prompt bien écrit",
+        "Un agent est un modèle totalement autonome qui redessine son propre graphe"
+      ],
+      "answer": 0,
+      "explanation": "La force d'un système agentique vient de l'architecture (état, contrôle de flux, garde-fous) ; aucun système de prod ne redessine son propre graphe."
+    },
+    {
+      "id": "livre-ai-agents-definitive-guide-12",
+      "category": "IA / Agents",
+      "source_slug": "livre-ai-agents-definitive-guide",
+      "question": "Selon ce livre, quelle est la règle d'or du human-in-the-loop avec `interrupt()` de LangGraph ?",
+      "choices": [
+        "Désactiver le checkpointing pendant l'interruption",
+        "N'interrompre qu'à la toute fin du graphe",
+        "Ne jamais mettre de code à effet de bord dans le même node qu'un interrupt",
+        "Toujours exécuter l'effet de bord avant la pause"
+      ],
+      "answer": 2,
+      "explanation": "Sinon l'effet de bord (appel API, écriture DB) est rejoué au resume : on pause d'abord, on exécute après approbation."
+    },
+    {
+      "id": "livre-building-ai-agents-llms-rag-kg-13",
+      "category": "IA / Agents",
+      "source_slug": "livre-building-ai-agents-llms-rag-kg",
+      "question": "Qu'est-ce qui distingue « Building AI Agents with LLMs, RAG and Knowledge Graphs » des autres livres agents récents ?",
+      "choices": [
+        "Il se concentre uniquement sur Claude Code",
+        "C'est un roman sur les opérations IT",
+        "Il ne traite que du fine-tuning de modèles fermés",
+        "Il part des fondations NLP (TF-IDF, word2vec, Transformer) et consacre un chapitre aux Knowledge Graphs / GraphRAG"
+      ],
+      "answer": 3,
+      "explanation": "Le livre explique la mécanique de zéro (one-hot vers Transformer) et ajoute un chapitre entier sur les KG et GraphRAG, absent des autres ouvrages."
+    },
+    {
+      "id": "livre-agentic-coding-claude-code-14",
+      "category": "IA / Agents",
+      "source_slug": "livre-agentic-coding-claude-code",
+      "question": "Quelle est la thèse centrale d'« Agentic Coding with Claude Code » ?",
+      "choices": [
+        "Les agents doivent éviter tout fichier mémoire persistant",
+        "Le prompt statique compte plus que le harness d'orchestration",
+        "Un serveur MCP doit toujours tout charger upfront",
+        "La maîtrise du contexte (taille, sélection, isolation) prime sur le prompt"
+      ],
+      "answer": 3,
+      "explanation": "À mesure que les agents deviennent long-running, l'ingénierie se déplace du prompt vers le contexte et le harness qui l'entoure."
+    },
+    {
+      "id": "livre-agentic-coding-claude-code-15",
+      "category": "IA / Agents",
+      "source_slug": "livre-agentic-coding-claude-code",
+      "question": "Dans Claude Code, pour ajouter un trigger d'activation à un skill, que faut-il modifier ?",
+      "choices": [
+        "Le nom du dossier du skill",
+        "Le champ `description` du frontmatter (seul injecté à chaque session)",
+        "Le fichier `~/.claude/CLAUDE.md`",
+        "La section `## When to Use` du corps du SKILL.md"
+      ],
+      "answer": 1,
+      "explanation": "Par progressive disclosure, seul le frontmatter (name, description) est chargé en permanence ; modifier le corps ne change pas la sélection."
+    },
+    {
+      "id": "livre-hands-on-rag-for-production-16",
+      "category": "IA / RAG",
+      "source_slug": "livre-hands-on-rag-for-production",
+      "question": "Selon Hands-On RAG for Production, quel maillon de la chaîne RAG est le plus sous-estimé et cause des échecs souvent attribués à tort au LLM ?",
+      "choices": [
+        "Le chunking / l'ingestion",
+        "La température du modèle",
+        "Le choix de la police d'affichage",
+        "Le nombre de GPU"
+      ],
+      "answer": 0,
+      "explanation": "Les erreurs d'ingestion (chunking, OCR) se propagent en aval et la retrieval ne peut pas les corriger : « tout le monde débat du LLM, personne du chunking »."
+    },
+    {
+      "id": "livre-hands-on-rag-for-production-17",
+      "category": "IA / RAG",
+      "source_slug": "livre-hands-on-rag-for-production",
+      "question": "Pourquoi combiner recherche vectorielle (sémantique) et BM25 (lexicale) dans une « hybrid search » ?",
+      "choices": [
+        "Le vectoriel capte l'intent conceptuel, BM25 excelle sur noms propres, codes et exact match",
+        "Pour éviter d'avoir à faire du reranking",
+        "Parce que BM25 est toujours supérieur au vectoriel",
+        "Parce que la recherche vectorielle ne fonctionne pas en production"
+      ],
+      "answer": 0,
+      "explanation": "Les deux approches sont complémentaires ; on fusionne leurs résultats (RRF ou reranker) pour obtenir le meilleur des deux."
+    },
+    {
+      "id": "livre-user-experience-design-kantamneni-18",
+      "category": "Design / UX",
+      "source_slug": "livre-user-experience-design-kantamneni",
+      "question": "Dans le playbook UX de Kantamneni, quel niveau offre le plus fort « economic moat » (le plus long à rattraper par un concurrent) ?",
+      "choices": [
+        "Un test A/B de couleur de bouton",
+        "L'Experience Transformation (XT)",
+        "Le look & feel d'un écran",
+        "L'UI design (Screen UX)"
+      ],
+      "answer": 1,
+      "explanation": "L'UI se copie en quelques semaines, la product UX en 12-24 mois, mais l'Experience Transformation (tous les touchpoints alignés) demande des années."
+    },
+    {
+      "id": "livre-user-experience-design-kantamneni-19",
+      "category": "Design / UX",
+      "source_slug": "livre-user-experience-design-kantamneni",
+      "question": "Qu'est-ce que l'« experience debt » selon Kantamneni ?",
+      "choices": [
+        "La dette technique du backend",
+        "Le temps passé en recherche utilisateur",
+        "Le coût des licences d'outils de design",
+        "La dette envers l'utilisateur accumulée par les compromis UX, invisible aux métriques internes"
+      ],
+      "answer": 3,
+      "explanation": "Chaque solution tronquée pour livrer vite ajoute de la dette UX ; plus pernicieuse que la dette technique car elle n'apparaît pas dans les métriques internes."
     }
   ]
 }
