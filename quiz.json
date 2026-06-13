@@ -10,11 +10,11 @@
       "question": "Quelle est la principale limite de l'analyse de Fallow par rapport à un outil comme knip ?",
       "choices": [
         "Il ne supporte que le langage Rust",
-        "Il est purement syntaxique (pas de type-checker), donc rate ce qui dépend des types",
         "Il nécessite une base de données vectorielle",
-        "Il ne fonctionne qu'en CI cloud payante"
+        "Il ne fonctionne qu'en CI cloud payante",
+        "Il est purement syntaxique (pas de type-checker), donc rate ce qui dépend des types"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Fallow fait de l'analyse statique déterministe TS/JS mais syntaxique uniquement : ce qui exige un type-checker (narrowing cross-module, types conditionnels) est hors de sa portée. C'est ce qui le rend rapide, au prix de cet angle mort.",
       "more": {
         "label": "fallow-rs/fallow",
@@ -27,10 +27,10 @@
       "source_slug": "graphify",
       "question": "Que produit Graphify à partir d'un dossier de code ou de documentation ?",
       "choices": [
-        "Un binaire optimisé",
+        "Un rapport de couverture de code",
         "Un graphe de connaissances interrogeable (avec serveur MCP)",
-        "Des tests unitaires automatiques",
-        "Un rapport de couverture de code"
+        "Un binaire optimisé",
+        "Des tests unitaires automatiques"
       ],
       "answer": 1,
       "explanation": "Graphify transforme code/doc/médias en graphe de connaissances interrogeable (graph.html, GRAPH_REPORT.md, graph.json), exposé aux assistants IA via un serveur MCP.",
@@ -45,12 +45,12 @@
       "source_slug": "aitmpl-mobile-design",
       "question": "Quel principe directeur résume le skill Claude Code « Mobile Design » ?",
       "choices": [
-        "« Touch-first, Battery-conscious, Platform-respectful, Offline-capable »",
         "« Mobile-first, SEO-friendly, Cloud-native, Always-online »",
         "« Desktop-first, Performance-only, Cross-platform, Online-required »",
-        "« Web-first, Battery-free, Platform-agnostic, Sync-everywhere »"
+        "« Web-first, Battery-free, Platform-agnostic, Sync-everywhere »",
+        "« Touch-first, Battery-conscious, Platform-respectful, Offline-capable »"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Le skill guide la conception d'apps mobiles de qualité pro selon le principe « Touch-first, Battery-conscious, Platform-respectful, Offline-capable ».",
       "more": {
         "label": "AI Templates — Mobile Design",
@@ -65,8 +65,8 @@
       "choices": [
         "Au moins 44-48 px",
         "Au moins 16-20 px",
-        "Au moins 24-30 px",
-        "Au moins 64-72 px"
+        "Au moins 64-72 px",
+        "Au moins 24-30 px"
       ],
       "answer": 0,
       "explanation": "En s'appuyant sur la loi de Fitts, le skill recommande des cibles tactiles d'au moins 44-48 px pour rester confortablement actionnables au doigt.",
@@ -81,12 +81,12 @@
       "source_slug": "anthropic-labor-market-impacts",
       "question": "Comment l'Anthropic Economic Index définit-il l'« observed exposure » (exposition observée) ?",
       "choices": [
-        "La capacité théorique des LLM combinée à l'usage réel de Claude",
-        "Le seul nombre de tâches qu'un LLM peut accomplir en théorie",
         "Le pourcentage de salariés ayant déjà utilisé un chatbot",
-        "Le ratio entre salaire et niveau de diplôme d'un métier"
+        "La capacité théorique des LLM combinée à l'usage réel de Claude",
+        "Le ratio entre salaire et niveau de diplôme d'un métier",
+        "Le seul nombre de tâches qu'un LLM peut accomplir en théorie"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "L'« observed exposure » croise la capacité théorique des modèles avec l'usage réel mesuré de Claude ; l'étude constate que l'usage réel reste une fraction du faisable.",
       "more": {
         "label": "Anthropic — Labor market impacts of AI",
@@ -100,9 +100,9 @@
       "question": "D'après l'étude, quel métier présente l'exposition à l'IA la plus élevée (environ 75 % des tâches) ?",
       "choices": [
         "Les programmeurs informatiques",
-        "Les cuisiniers",
+        "Les agents de saisie de données",
         "Les mécaniciens",
-        "Les agents de saisie de données"
+        "Les cuisiniers"
       ],
       "answer": 0,
       "explanation": "Les programmeurs informatiques arrivent en tête avec ~75 % des tâches exposées, devant les services client et la saisie de données ; 30 % des travailleurs ont une exposition nulle (cuisiniers, mécaniciens…).",
@@ -117,12 +117,12 @@
       "source_slug": "anthropic-labor-market-impacts",
       "question": "Quel constat l'étude fait-elle sur l'emploi des travailleurs exposés depuis fin 2022 ?",
       "choices": [
+        "Aucun effet mesurable d'aucune sorte sur l'embauche",
         "Pas de hausse systématique du chômage, mais un ralentissement d'environ 14 % de l'embauche des jeunes (22-25 ans) dans les métiers exposés",
         "Une explosion immédiate du chômage chez tous les travailleurs exposés",
-        "Une baisse générale du chômage grâce à la création de postes liés à l'IA",
-        "Aucun effet mesurable d'aucune sorte sur l'embauche"
+        "Une baisse générale du chômage grâce à la création de postes liés à l'IA"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "L'étude ne relève pas de hausse systématique du chômage des exposés, mais un ralentissement d'environ 14 % de l'embauche des 22-25 ans dans les métiers les plus exposés.",
       "more": {
         "label": "Anthropic — Labor market impacts of AI",
@@ -135,12 +135,12 @@
       "source_slug": "anthropics-skills",
       "question": "Quels sont les deux champs obligatoires du frontmatter d'un fichier SKILL.md selon la spécification Agent Skills ?",
       "choices": [
-        "name et description",
+        "category et license",
         "title et version",
         "id et author",
-        "category et license"
+        "name et description"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "La structure minimale d'une skill est un fichier SKILL.md dont le frontmatter doit contenir au moins les champs name et description, suivis des instructions et exemples.",
       "more": {
         "label": "anthropics/skills (GitHub)",
@@ -154,9 +154,9 @@
       "question": "Que rassemble le dépôt officiel anthropics/skills ?",
       "choices": [
         "Des skills d'exemple, la spécification Agent Skills et un template pour créer ses propres skills",
-        "Un modèle de langage open source téléchargeable et entraînable",
+        "Un client de chat pour discuter avec Claude en local",
         "Une suite de tests de performance pour comparer les LLM",
-        "Un client de chat pour discuter avec Claude en local"
+        "Un modèle de langage open source téléchargeable et entraînable"
       ],
       "answer": 0,
       "explanation": "Le dépôt fournit des skills d'exemple organisées par catégories, la spec standard Agent Skills (./spec) et un template (./template) ; c'est une ressource de démonstration et d'éducation.",
@@ -171,12 +171,12 @@
       "source_slug": "awesome-claude-code",
       "question": "Qu'est-ce que « Awesome Claude Code » ?",
       "choices": [
-        "Une liste curatée (awesome-list) de ressources pour Claude Code, pas une librairie installable",
-        "Un package npm officiel qui installe Claude Code en une commande",
+        "Une extension de navigateur pour piloter Claude depuis le web",
         "Un fork open source du moteur d'inférence de Claude",
-        "Une extension de navigateur pour piloter Claude depuis le web"
+        "Un package npm officiel qui installe Claude Code en une commande",
+        "Une liste curatée (awesome-list) de ressources pour Claude Code, pas une librairie installable"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "C'est un dépôt « awesome-list » qui recense skills, slash commands, hooks, orchestrateurs et fichiers CLAUDE.md ; c'est un index/catalogue, pas un package, dont chaque ressource est à vérifier avant adoption.",
       "more": {
         "label": "awesome-claude-code (GitHub)",
@@ -189,12 +189,12 @@
       "source_slug": "claude-code-docker-sandbox",
       "question": "Quelle technique l'article décrit-il pour lancer Claude Code en mode « YOLO » isolé sans perdre sa configuration ?",
       "choices": [
-        "Monter le répertoire ~/.claude dans le conteneur, puis créer un lien symbolique à l'intérieur",
         "Copier manuellement les credentials dans une variable d'environnement à chaque démarrage",
-        "Désactiver totalement l'authentification de Claude Code dans le conteneur",
-        "Reconstruire l'image Docker à chaque session pour y figer la config"
+        "Reconstruire l'image Docker à chaque session pour y figer la config",
+        "Monter le répertoire ~/.claude dans le conteneur, puis créer un lien symbolique à l'intérieur",
+        "Désactiver totalement l'authentification de Claude Code dans le conteneur"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Par défaut le Docker Sandbox n'expose pas ~/.claude ; l'astuce consiste à monter ce répertoire dans le conteneur puis à créer un lien symbolique pour que Claude Code retrouve sa config (skills, prompts, credentials).",
       "more": {
         "label": "Claude Code in a Docker Sandbox",
@@ -208,8 +208,8 @@
       "question": "Pourquoi le répertoire ~/.claude ne peut-il pas être monté en lecture seule dans le conteneur ?",
       "choices": [
         "Claude Code y stocke les credentials après authentification, il doit donc rester accessible en écriture",
-        "Docker interdit techniquement tout montage en lecture seule d'un dossier utilisateur",
         "Le mode YOLO refuse de démarrer si un volume est en lecture seule",
+        "Docker interdit techniquement tout montage en lecture seule d'un dossier utilisateur",
         "Les skills sont chiffrés et doivent être déchiffrés sur place à chaque lancement"
       ],
       "answer": 0,
@@ -225,12 +225,12 @@
       "source_slug": "claude-code-templates",
       "question": "Comment installe-t-on les composants de « Claude Code Templates » ?",
       "choices": [
-        "À la carte via npx, sans cloner le dépôt",
-        "En clonant obligatoirement tout le dépôt puis en compilant",
+        "En les copiant un par un depuis une interface web sans CLI",
         "Via un installeur graphique propriétaire payant",
-        "En les copiant un par un depuis une interface web sans CLI"
+        "En clonant obligatoirement tout le dépôt puis en compilant",
+        "À la carte via npx, sans cloner le dépôt"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Claude Code Templates est un catalogue de 100+ composants (agents, commandes, MCP, hooks, settings) installables à la carte via npx, sans avoir à cloner le repo.",
       "more": {
         "label": "claude-code-templates (GitHub)",
@@ -243,12 +243,12 @@
       "source_slug": "cli-anything",
       "question": "Que fait l'outil CLI-Anything ?",
       "choices": [
-        "Il transforme automatiquement n'importe quel logiciel en interface ligne de commande agent-native, avec sortie JSON structurée",
         "Il convertit des scripts shell en applications graphiques de bureau",
         "Il héberge des modèles de langage en local pour les piloter en CLI",
-        "Il traduit des commandes en langage naturel vers du SQL uniquement"
+        "Il traduit des commandes en langage naturel vers du SQL uniquement",
+        "Il transforme automatiquement n'importe quel logiciel en interface ligne de commande agent-native, avec sortie JSON structurée"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "CLI-Anything génère, via un pipeline en 7 phases, des interfaces CLI agent-native pour des logiciels existants, avec une sortie JSON structurée pensée pour être consommée par des agents IA (Claude Code, Codex…).",
       "more": {
         "label": "CLI-Anything (GitHub)",
@@ -261,12 +261,12 @@
       "source_slug": "cli-anything",
       "question": "Quelle est une limite importante de CLI-Anything ?",
       "choices": [
+        "Il ne produit que des sorties en texte libre, inexploitables par un agent",
         "Il nécessite l'accès au code source du logiciel ciblé ; les binaires compilés dégradent la qualité de génération",
-        "Il ne fonctionne qu'avec des logiciels écrits en Python",
         "Il impose un abonnement mensuel pour générer la moindre CLI",
-        "Il ne produit que des sorties en texte libre, inexploitables par un agent"
+        "Il ne fonctionne qu'avec des logiciels écrits en Python"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "CLI-Anything dépend de modèles frontier et a besoin de l'accès au code source pour une génération fiable ; sur des binaires compilés la qualité se dégrade, et des raffinements itératifs (/refine) peuvent être nécessaires.",
       "more": {
         "label": "CLI-Anything (GitHub)",
@@ -279,12 +279,12 @@
       "source_slug": "cmux",
       "question": "Qu'est-ce que cmux ?",
       "choices": [
-        "Une app macOS de type « workspace terminal » pour faire tourner plusieurs agents IA de code (Claude Code, Grok) en onglets et splits",
-        "Un multiplexeur de terminal en ligne de commande concurrent de tmux, sans interface graphique",
         "Un service cloud d'hébergement d'agents IA accessible via navigateur",
-        "Une extension VS Code pour exécuter des notebooks Python"
+        "Une app macOS de type « workspace terminal » pour faire tourner plusieurs agents IA de code (Claude Code, Grok) en onglets et splits",
+        "Une extension VS Code pour exécuter des notebooks Python",
+        "Un multiplexeur de terminal en ligne de commande concurrent de tmux, sans interface graphique"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "cmux est une application native macOS qui héberge des terminaux (basés sur ghostty) en onglets/splits et bundle les binaires claude et grok pour lancer plusieurs agents IA de code en parallèle dans une seule fenêtre.",
       "more": {
         "label": "cmux (GitHub)",
@@ -297,12 +297,12 @@
       "source_slug": "context7",
       "question": "Quel est le rôle principal de Context7 ?",
       "choices": [
-        "Un serveur MCP qui injecte de la documentation de code à jour et spécifique à la version dans le contexte des agents IA",
         "Un hébergeur de bases de données vectorielles pour le RAG",
         "Un linter qui corrige automatiquement le code généré par un LLM",
-        "Un proxy qui réduit la consommation de tokens des appels LLM"
+        "Un proxy qui réduit la consommation de tokens des appels LLM",
+        "Un serveur MCP qui injecte de la documentation de code à jour et spécifique à la version dans le contexte des agents IA"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Context7 récupère de la documentation à jour et spécifique à la version de la librairie pour l'injecter directement dans le contexte de l'agent, au lieu de s'appuyer sur les données d'entraînement potentiellement périmées du LLM.",
       "more": {
         "label": "Context7 sur GitHub",
@@ -315,12 +315,12 @@
       "source_slug": "context7",
       "question": "Quel problème Context7 cherche-t-il principalement à éviter lors de la génération de code ?",
       "choices": [
-        "Les API hallucinées et les exemples obsolètes",
         "Les fuites de secrets dans les commits",
         "Les conflits de merge Git",
-        "Le dépassement de la fenêtre de contexte"
+        "Le dépassement de la fenêtre de contexte",
+        "Les API hallucinées et les exemples obsolètes"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "En fournissant la doc réelle de la version utilisée, Context7 permet de générer du code avec des API actuelles et d'éviter les API hallucinées comme les exemples périmés.",
       "more": {
         "label": "Context7 sur GitHub",
@@ -335,8 +335,8 @@
       "choices": [
         "Une plateforme self-hosted d'agrégation de renseignement qui surveille les conditions mondiales via 27 sources open-source sur un dashboard unifié",
         "Un scanner de vulnérabilités pour conteneurs Docker",
-        "Un gestionnaire de mots de passe chiffré de bout en bout",
-        "Un pare-feu applicatif web (WAF) open-source"
+        "Un pare-feu applicatif web (WAF) open-source",
+        "Un gestionnaire de mots de passe chiffré de bout en bout"
       ],
       "answer": 0,
       "explanation": "Crucix est une plateforme OSINT auto-hébergée qui agrège 27 sources open-source (imagerie satellite, flight tracking, indicateurs économiques, sanctions...) et les affiche sur un dashboard temps réel avec globe 3D.",
@@ -351,12 +351,12 @@
       "source_slug": "crucix",
       "question": "Comment le dashboard de Crucix se met-il à jour en continu ?",
       "choices": [
+        "Rechargement complet de la page toutes les heures",
         "Auto-refresh toutes les 15 minutes via server-sent events (SSE)",
         "Polling manuel déclenché par l'utilisateur uniquement",
-        "Webhooks entrants poussés par chaque source",
-        "Rechargement complet de la page toutes les heures"
+        "Webhooks entrants poussés par chaque source"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Crucix rafraîchit ses données automatiquement toutes les 15 minutes via des server-sent events (SSE), avec un suivi de delta qui identifie ce qui a changé entre deux balayages.",
       "more": {
         "label": "Crucix sur GitHub",
@@ -369,12 +369,12 @@
       "source_slug": "everything-claude-code",
       "question": "Que propose le projet everything-claude-code (ECC) ?",
       "choices": [
-        "Une couche complète de skills, agents, règles, hooks et configs MCP pour optimiser les harnais d'agents de code",
-        "Un IDE web concurrent de VS Code spécialisé pour l'IA",
+        "Un service cloud de facturation des appels à Claude",
         "Un modèle de langage open-weight entraîné sur du code",
-        "Un service cloud de facturation des appels à Claude"
+        "Une couche complète de skills, agents, règles, hooks et configs MCP pour optimiser les harnais d'agents de code",
+        "Un IDE web concurrent de VS Code spécialisé pour l'IA"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "ECC fournit une base prête à l'emploi pour les agents de code (64 agents, 261 skills, hooks, règles multi-langages, configs MCP), issue de plus de 10 mois d'usage en production.",
       "more": {
         "label": "everything-claude-code sur GitHub",
@@ -387,12 +387,12 @@
       "source_slug": "everything-claude-code",
       "question": "Quelle est une limite mise en avant à propos de l'adoption d'ECC ?",
       "choices": [
-        "Très volumineux (261 skills, 64 agents), à piocher sélectivement plutôt qu'à installer en bloc",
+        "Incompatible avec tout autre harnais que Claude Code",
         "Réservé exclusivement à Windows",
-        "Sous licence propriétaire payante",
-        "Incompatible avec tout autre harnais que Claude Code"
+        "Très volumineux (261 skills, 64 agents), à piocher sélectivement plutôt qu'à installer en bloc",
+        "Sous licence propriétaire payante"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "ECC est très volumineux et opiniâtre : installer tout en bloc risque de polluer le contexte et de dupliquer ses propres conventions ; mieux vaut cherry-picker. Il est par ailleurs sous licence MIT et cross-harnais.",
       "more": {
         "label": "everything-claude-code sur GitHub",
@@ -405,12 +405,12 @@
       "source_slug": "flipboard-nowtechtv",
       "question": "Qu'est-ce que le magazine Flipboard nowtech (@jkeinborg) ?",
       "choices": [
-        "Un magazine curé qui agrège l'actualité tech francophone grand public",
         "Un flux RSS dédié à la sécurité offensive et au pentest",
         "Une newsletter payante sur l'investissement boursier",
+        "Un magazine curé qui agrège l'actualité tech francophone grand public",
         "Un dépôt GitHub de templates d'agents IA"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "C'est un magazine Flipboard curé par Jérôme Keinborg qui rassemble l'actualité tech francophone grand public (01net, Numerama, Frandroid, Jeuxvideo.com), lié à l'émission #LeMugNowtech.",
       "more": {
         "label": "Magazine nowtech sur Flipboard",
@@ -424,9 +424,9 @@
       "question": "Qu'est-ce que Gemma ?",
       "choices": [
         "Une famille de modèles de langage ouverts (open-weight) de Google, conçue pour tourner en local",
+        "Un service de modération de contenu pour réseaux sociaux",
         "Une API cloud propriétaire de Google facturée au token",
-        "Un framework JavaScript de génération d'interfaces",
-        "Un service de modération de contenu pour réseaux sociaux"
+        "Un framework JavaScript de génération d'interfaces"
       ],
       "answer": 0,
       "explanation": "Gemma est une famille de modèles open-weight de Google, exécutables on-device via Ollama, llama.cpp ou LM Studio (formats GGUF), sans clé API ni coût par token.",
@@ -441,12 +441,12 @@
       "source_slug": "gemma",
       "question": "Dans quel cas la fiche déconseille-t-elle de compter sur Gemma ?",
       "choices": [
+        "Pour du prototypage hors-ligne",
         "Pour du raisonnement lourd ou agentique complexe, où un modèle frontier reste supérieur",
         "Pour le traitement local et privé de données",
-        "Pour du prototypage hors-ligne",
         "Pour des tâches répétitives à coût nul"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Gemma est présenté comme un complément local et non un remplaçant : pour du raisonnement lourd ou agentique complexe, un modèle frontier (type Claude) reste supérieur.",
       "more": {
         "label": "Gemma (Google AI)",
@@ -459,12 +459,12 @@
       "source_slug": "google-stitch",
       "question": "Que fait Google Stitch ?",
       "choices": [
-        "Il génère des écrans et designs d'UI à partir de prompts texte ou d'images de référence",
+        "Il teste l'accessibilité des sites web",
         "Il convertit des fichiers Figma en PDF imprimables",
-        "Il héberge et déploie des applications front-end",
-        "Il teste l'accessibilité des sites web"
+        "Il génère des écrans et designs d'UI à partir de prompts texte ou d'images de référence",
+        "Il héberge et déploie des applications front-end"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Stitch, un outil Google Labs, génère des écrans d'UI à partir d'une description texte (et/ou d'une image), permet d'itérer sur le design et d'exporter vers du code front ou Figma.",
       "more": {
         "label": "Google Stitch",
@@ -477,12 +477,12 @@
       "source_slug": "googleworkspace-cli",
       "question": "Qu'est-ce que la Google Workspace CLI (gws) ?",
       "choices": [
-        "Une CLI en Rust offrant un accès unifié aux APIs Google Workspace avec une sortie JSON structurée",
-        "Une extension de navigateur pour bloquer les publicités dans Gmail",
         "Un service managé de sauvegarde chiffrée de Google Drive",
-        "Un client de bureau open-source pour Google Agenda"
+        "Une extension de navigateur pour bloquer les publicités dans Gmail",
+        "Un client de bureau open-source pour Google Agenda",
+        "Une CLI en Rust offrant un accès unifié aux APIs Google Workspace avec une sortie JSON structurée"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "gws est une CLI écrite en Rust qui unifie l'accès aux APIs Workspace (Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin) avec une sortie JSON pensée pour les humains comme pour les agents IA.",
       "more": {
         "label": "Google Workspace CLI sur GitHub",
@@ -495,12 +495,12 @@
       "source_slug": "googleworkspace-cli",
       "question": "Quelle caractéristique permet à gws de reprendre automatiquement les nouveaux endpoints des APIs Google ?",
       "choices": [
+        "Une dépendance directe au SDK officiel en Python",
         "La découverte dynamique des APIs construite à partir du Google Discovery Service",
-        "Un fichier de configuration YAML mis à jour à la main",
         "Un scraping périodique de la documentation HTML de Google",
-        "Une dépendance directe au SDK officiel en Python"
+        "Un fichier de configuration YAML mis à jour à la main"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "gws s'appuie sur le Google Discovery Service pour découvrir dynamiquement les APIs : les nouveaux endpoints sont repris automatiquement, sans modification manuelle.",
       "more": {
         "label": "Google Workspace CLI sur GitHub",
@@ -513,12 +513,12 @@
       "source_slug": "gsd-2",
       "question": "Quel est l'objectif du système GSD 2 (GSD Pi) ?",
       "choices": [
-        "Permettre aux agents IA de travailler longtemps en autonomie sans perdre la vue d'ensemble, via méta-prompting, context engineering et spec-driven development",
         "Compiler du TypeScript vers du WebAssembly performant",
+        "Permettre aux agents IA de travailler longtemps en autonomie sans perdre la vue d'ensemble, via méta-prompting, context engineering et spec-driven development",
         "Orchestrer des conteneurs Kubernetes en production",
         "Générer des jeux de données synthétiques pour l'entraînement de modèles"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "GSD 2 combine méta-prompting, context engineering et développement dirigé par les spécifications pour que les agents IA gardent le cap sur l'objectif global lors de sessions autonomes longues.",
       "more": {
         "label": "GSD 2 sur GitHub",
