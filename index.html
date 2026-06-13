@@ -63,6 +63,8 @@
   .explain.show{display:block;animation:fade .2s ease}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
   .explain p{margin:0 0 12px;color:#d6dbe6}
+  .explain .ctx{margin:0 0 14px;color:var(--muted);font-size:.92rem;line-height:1.55;border-left:2px solid var(--accent);padding-left:12px}
+  .explain .ctx::before{content:"Contexte — ";color:var(--accent);font-weight:600}
   .more a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid #3c4a1f;padding-bottom:1px}
   .more a:hover{border-color:var(--accent-2)}
   .empty{color:var(--muted);text-align:center;padding:40px 0}
@@ -237,6 +239,7 @@ function render(){
       </div>
       <div class="explain" id="explain">
         <p id="exp"></p>
+        <p id="ctx" class="ctx"></p>
         ${moreHtml}
       </div>
     </div>`;
@@ -258,6 +261,7 @@ function answer(idx){
   state.answered++; if(good)state.score++;
   recordAnswer(good);
   $("#exp").textContent=q.explanation||"";
+  const ctx=$("#ctx");ctx.textContent=q.context||"";ctx.style.display=q.context?"":"none";
   $("#explain").classList.add("show");
   const v=$("#verdict");v.textContent=good?"Correct ✓":"Raté ✗";v.className="verdict "+(good?"ok":"ko");
   update();
