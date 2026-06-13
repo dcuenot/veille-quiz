@@ -65,6 +65,34 @@
   .bigscore{font-size:2.4rem;font-weight:700;text-align:center;margin:6px 0 20px;letter-spacing:-.02em}
   .bigscore .pct{display:block;font-size:1rem;font-weight:500;color:var(--muted);margin-top:4px}
   .choice.restart{justify-content:center;text-align:center;font-weight:600}
+  /* Gamification */
+  .htop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .streakchip{display:flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:6px 12px;font-size:.85rem;font-weight:600}
+  .streakchip.dim{opacity:.5;filter:grayscale(.6)}
+  .streakchip .flame{font-size:1rem;line-height:1}
+  .streakchip .unit{color:var(--muted);font-weight:500;margin-left:-3px}
+  .goaldots{display:flex;align-items:center;gap:4px;margin-left:4px;padding-left:8px;border-left:1px solid var(--line)}
+  .goaldots .dot{width:7px;height:7px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line)}
+  .goaldots .dot.on{background:var(--accent-2);border-color:var(--accent-2)}
+  .goaldots .gx{color:var(--muted);font-weight:500;font-size:.78rem;margin-left:3px}
+  .gam-panel .gline{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:.95rem;font-weight:600}
+  .gam-panel .gline .rec{color:var(--muted);font-weight:500}
+  .gam-panel .goalstate{text-align:center;margin:10px 0 4px;font-size:.9rem}
+  .gam-panel .goalstate.met{color:var(--ok)}
+  .gam-panel .goalstate.pending{color:var(--muted)}
+  .gam-panel .stats{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;margin:10px 0 16px}
+  .gam-panel .stats b{color:var(--ink);font-weight:600}
+  .badgegrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .badge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;
+    padding:5px 11px;font-size:.8rem;color:var(--muted);background:var(--panel)}
+  .badge.on{color:var(--ink);border-color:#3a4255;background:var(--panel-2)}
+  .badge.fresh{border-color:var(--accent-2);color:var(--accent-2);animation:pulse .6s ease-out}
+  .toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translate(-50%,-16px);
+    z-index:40;background:var(--panel-2);border:1px solid #3a4255;border-radius:12px;padding:11px 16px;
+    font-size:.9rem;font-weight:600;box-shadow:var(--shadow);opacity:0;transition:opacity .25s,transform .25s;
+    pointer-events:none;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
   footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:22px}
   footer a{color:var(--muted)}
   .progress{height:4px;background:var(--panel);border-radius:999px;overflow:hidden;margin-top:10px}
@@ -84,7 +112,13 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Quiz Veille</h1>
+    <div class="htop">
+      <h1>Quiz Veille</h1>
+      <div class="streakchip" id="streakchip" hidden>
+        <span class="flame">🔥</span><span id="streaknum">0</span><span class="unit">j</span>
+        <span class="goaldots" id="goaldots"></span>
+      </div>
+    </div>
     <div class="sub">Teste tes connaissances sur la veille tech — agents IA, outillage dev, design, sécurité.
       <span id="updated"></span></div>
   </header>
@@ -110,10 +144,50 @@
   </div>
 </div>
 
+<div class="toast" id="toast" hidden></div>
+
+<script src="./gam.js"></script>
 <script>
 const state={all:[],deck:[],i:0,score:0,answered:0,cat:""};
 const $=s=>document.querySelector(s);
 const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
+
+// --- Gamification (streak quotidien, persiste en localStorage ; degrade proprement si gam.js absent) ---
+const GAM_ON=typeof Gam!=="undefined";
+const GAM_KEY="veille-quiz:gam";
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
+function gamLoad(){try{return Gam.normalize(JSON.parse(localStorage.getItem(GAM_KEY)));}catch(e){return Gam.emptyState();}}
+function gamSave(s){try{localStorage.setItem(GAM_KEY,JSON.stringify(s));}catch(e){}}
+let gam=GAM_ON?Gam.refreshDay(gamLoad(),today()):null;
+if(GAM_ON)gamSave(gam);
+let freshBadges=[];   // badges debloques pendant cette session (mis en avant sur l'ecran de score)
+
+function renderStreak(){
+  if(!GAM_ON)return;
+  const snap=Gam.snapshot(gam,today());
+  const chip=$("#streakchip");chip.hidden=false;chip.classList.toggle("dim",snap.streak===0);
+  $("#streaknum").textContent=snap.streak;
+  let dots="";for(let i=0;i<snap.goal;i++)dots+=`<i class="dot${i<snap.todayCount?" on":""}"></i>`;
+  $("#goaldots").innerHTML=dots+`<span class="gx">${Math.min(snap.todayCount,snap.goal)}/${snap.goal}</span>`;
+}
+
+let toastQ=[],toastBusy=false;
+function toast(msg){toastQ.push(msg);if(!toastBusy)toastNext();}
+function toastNext(){
+  if(!toastQ.length){toastBusy=false;return;}
+  toastBusy=true;const el=$("#toast");el.textContent=toastQ.shift();el.hidden=false;
+  requestAnimationFrame(()=>el.classList.add("show"));
+  setTimeout(()=>{el.classList.remove("show");setTimeout(()=>{el.hidden=true;toastNext();},260);},1900);
+}
+
+function recordAnswer(good){
+  if(!GAM_ON)return;
+  const r=Gam.applyAnswer(gam,good,today());
+  gam=r.state;gamSave(gam);
+  if(r.goalJustMet)toast(`Objectif du jour atteint — 🔥 ${gam.streak} j`);
+  r.newBadges.forEach(id=>{const b=Gam.BADGES.find(x=>x.id===id);freshBadges.push(id);toast(`Badge débloqué : ★ ${b?b.label:id}`);});
+  renderStreak();
+}
 
 function catList(qs){return [...new Set(qs.map(q=>q.category))].sort();}
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -158,6 +232,7 @@ function answer(idx){
   if(!good)btns[idx].classList.add("wrong");
   buzz(good?18:[10,45,10]);
   state.answered++; if(good)state.score++;
+  recordAnswer(good);
   $("#exp").textContent=q.explanation||"";
   $("#explain").classList.add("show");
   const v=$("#verdict");v.textContent=good?"Correct ✓":"Raté ✗";v.className="verdict "+(good?"ok":"ko");
@@ -174,13 +249,29 @@ function showResults(){
   buzz(12);
   const n=state.answered,s=state.score,pct=n?Math.round(100*s/n):0;
   const msg=pct>=80?"Excellent":pct>=50?"Bien joué":"À retravailler";
+  let gamPanel="";
+  if(GAM_ON){
+    const snap=Gam.snapshot(gam,today());
+    const badges=snap.badges.map(b=>`<span class="badge${b.unlocked?" on":""}${freshBadges.includes(b.id)?" fresh":""}">${b.unlocked?"★":"☆"} ${b.label}</span>`).join("");
+    const goalHtml=snap.goalMet
+      ?`<div class="goalstate met">Objectif du jour atteint ✓</div>`
+      :`<div class="goalstate pending">Plus que ${snap.remaining} question${snap.remaining>1?"s":""} aujourd'hui pour valider le jour</div>`;
+    gamPanel=`
+    <div class="card gam-panel">
+      <div class="gline"><span class="flame">🔥</span> Streak ${snap.streak} j <span class="rec">· record ${snap.bestStreak} j</span></div>
+      ${goalHtml}
+      <div class="stats"><span><b>${snap.totalAnswered}</b> réponse${snap.totalAnswered>1?"s":""}</span><span><b>${snap.accuracy}%</b> précision</span><span><b>${snap.daysPlayed}</b> jour${snap.daysPlayed>1?"s":""}</span></div>
+      <div class="badgegrid">${badges}</div>
+    </div>`;
+  }
   $("#stage").innerHTML=`
     <div class="card results">
       <div class="qmeta"><span class="cat">Résultat</span></div>
       <div class="q">${msg}</div>
       <div class="bigscore">${s} / ${n}<span class="pct">${pct}% de bonnes réponses</span></div>
       <button class="choice restart" id="restart"><span class="key">↻</span><span>Recommencer</span></button>
-    </div>`;
+    </div>${gamPanel}`;
+  freshBadges=[];
   $("#restart").onclick=buildDeck;
   $("#bar").style.width="100%";
   $("#counter").textContent=`${state.deck.length} / ${state.deck.length}`;
@@ -206,6 +297,7 @@ fetch("./quiz.json?_="+Date.now()).then(r=>r.json()).then(data=>{
   $("#shuffle").onclick=buildDeck;
   $("#next").onclick=next;
   buildDeck();
+  renderStreak();
 }).catch(e=>{$("#stage").innerHTML='<div class="empty">Impossible de charger le quiz (quiz.json).</div>';});
 </script>
 </body>
