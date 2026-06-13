@@ -154,6 +154,21 @@
 <script>
 const state={all:[],deck:[],i:0,score:0,answered:0,cat:""};
 const $=s=>document.querySelector(s);
+
+// Liens "Aller lire le chapitre" (VO) pour les questions issues d'un livre (source_slug "livre-*").
+// SRE Book de Google = gratuit en ligne ; les autres -> recherche O'Reilly par titre (VO).
+const BOOK_LINKS={
+  "livre-site-reliability-engineering-google":{url:"https://sre.google/sre-book/table-of-contents/",label:"SRE Book — gratuit en ligne"},
+  "livre-accelerate-forsgren-humble-kim":{url:"https://www.oreilly.com/search/?q=Accelerate%20Forsgren%20Humble%20Kim",label:"Accelerate (O'Reilly)"},
+  "livre-the-phoenix-project-kim-behr-spafford":{url:"https://www.oreilly.com/search/?q=The%20Phoenix%20Project%20Gene%20Kim",label:"The Phoenix Project (O'Reilly)"},
+  "livre-seeking-sre-blank-edelman":{url:"https://www.oreilly.com/search/?q=Seeking%20SRE",label:"Seeking SRE (O'Reilly)"},
+  "livre-continuous-integration-cd-van-merode":{url:"https://www.oreilly.com/search/?q=Continuous%20Integration%20Continuous%20Delivery%20van%20Merode",label:"CI/CD — Van Merode (O'Reilly)"},
+  "livre-ai-agents-definitive-guide":{url:"https://www.oreilly.com/search/?q=AI%20Agents%20The%20Definitive%20Guide",label:"AI Agents: The Definitive Guide (O'Reilly)"},
+  "livre-building-ai-agents-llms-rag-kg":{url:"https://www.oreilly.com/search/?q=Building%20AI%20Agents%20with%20LLMs%20RAG%20Knowledge%20Graphs",label:"Building AI Agents (O'Reilly)"},
+  "livre-agentic-coding-claude-code":{url:"https://www.oreilly.com/search/?q=Agentic%20Coding%20with%20Claude%20Code",label:"Agentic Coding with Claude Code (O'Reilly)"},
+  "livre-hands-on-rag-for-production":{url:"https://www.oreilly.com/search/?q=Hands-On%20RAG%20for%20Production",label:"Hands-On RAG for Production (O'Reilly)"},
+  "livre-user-experience-design-kantamneni":{url:"https://www.oreilly.com/search/?q=User%20Experience%20Design%20Kantamneni",label:"UX Design — Kantamneni (O'Reilly)"}
+};
 const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
 
 // --- Gamification (streak quotidien, persiste en localStorage ; degrade proprement si gam.js absent) ---
@@ -207,6 +222,11 @@ function render(){
   if(!state.deck.length){stage.innerHTML='<div class="empty">Aucune question pour cette catégorie.</div>';update();return;}
   const q=state.deck[state.i];
   const keys=["A","B","C","D","E"];
+  const isBook=(q.source_slug||"").startsWith("livre-");
+  const link=(q.more&&q.more.url)?q.more:(isBook?BOOK_LINKS[q.source_slug]:null);
+  const moreHtml=link&&link.url
+    ?`<div class="more">${isBook?"Aller lire le chapitre":"Pour aller plus loin"} → <a href="${link.url}" target="_blank" rel="noopener">${link.label||link.url}</a></div>`
+    :"";
   stage.innerHTML=`
     <div class="card">
       <div class="qmeta"><span class="cat">${q.category}</span></div>
@@ -217,7 +237,7 @@ function render(){
       </div>
       <div class="explain" id="explain">
         <p id="exp"></p>
-        ${q.more&&q.more.url?`<div class="more">Pour aller plus loin → <a href="${q.more.url}" target="_blank" rel="noopener">${q.more.label||q.more.url}</a></div>`:""}
+        ${moreHtml}
       </div>
     </div>`;
   stage.querySelectorAll(".choice").forEach(b=>b.onclick=()=>answer(+b.dataset.i));
