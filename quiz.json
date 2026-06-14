@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-13",
+  "generated": "2026-06-14",
   "repo_url": "https://github.com/dcuenot/veille-quiz",
-  "count": 49,
+  "count": 62,
   "questions": [
     {
       "id": "fallow-1",
@@ -824,6 +824,240 @@
       "answer": 3,
       "explanation": "Chaque solution tronquée pour livrer vite ajoute de la dette UX ; plus pernicieuse que la dette technique car elle n'apparaît pas dans les métriques internes.",
       "context": "L'experience debt est l'equivalent UX de la dette technique : chaque solution tronquee pour livrer vite ajoute une dette envers l'utilisateur. Elle est plus pernicieuse car invisible dans les metriques internes ; accumulee, elle expose a un concurrent qui repartirait d'une experience propre."
+    },
+    {
+      "id": "anthropic-cybersecurity-skills-0",
+      "category": "Sécurité",
+      "source_slug": "anthropic-cybersecurity-skills",
+      "question": "Que faut-il savoir sur le projet « Anthropic Cybersecurity Skills » malgré son nom ?",
+      "choices": [
+        "Il est officiellement développé et maintenu par Anthropic",
+        "C'est un projet communautaire open-source non affilié à Anthropic",
+        "Il fournit des exploits et payloads prêts à l'emploi",
+        "Il ne contient que des skills pour Claude, pas pour d'autres agents"
+      ],
+      "answer": 1,
+      "explanation": "Malgré son nom, c'est une bibliothèque communautaire (par Mahipal Jangra, licence Apache 2.0) sans lien avec Anthropic ; ce n'est ni un outil exécutable ni un set d'exploits, mais un catalogue de skills à charger.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
+      }
+    },
+    {
+      "id": "anthropic-cybersecurity-skills-1",
+      "category": "Sécurité",
+      "source_slug": "anthropic-cybersecurity-skills",
+      "question": "À combien de frameworks de sécurité les 754 skills de cette bibliothèque sont-elles mappées ?",
+      "choices": [
+        "2 frameworks (MITRE ATT&CK et NIST CSF uniquement)",
+        "5 frameworks (MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF)",
+        "10 frameworks couvrant tous les domaines",
+        "Aucun : les skills ne suivent pas de référentiel"
+      ],
+      "answer": 1,
+      "explanation": "Les skills sont mappées à 5 frameworks, dont MITRE ATLAS et NIST AI RMF qui couvrent spécifiquement les menaces adversariales liées à l'IA/ML.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
+      }
+    },
+    {
+      "id": "doctolib-agentic-coding-platform-engineering-2",
+      "category": "IA / Agents",
+      "source_slug": "doctolib-agentic-coding-platform-engineering",
+      "question": "Selon le retour d'expérience de Doctolib (600 ingénieurs), quel est le vrai frein à l'adoption de l'IA à grande échelle ?",
+      "choices": [
+        "Les problèmes de process préexistants (env de dev lent, tests flaky, CI lente) qui deviennent bloquants",
+        "Le manque d'experts en intelligence artificielle",
+        "Le coût des licences des modèles d'IA",
+        "La résistance des développeurs au changement"
+      ],
+      "answer": 0,
+      "explanation": "Le message clé : « tout ce qui était gênant devient bloquant ». Avec ~600 agents/jour qui s'onboardent sur la codebase, les faiblesses de process passent de gênantes à bloquantes.",
+      "more": {
+        "label": "Talk Devoxx (YouTube)",
+        "url": "https://www.youtube.com/watch?v=NLg8As47Y84"
+      }
+    },
+    {
+      "id": "doctolib-agentic-coding-platform-engineering-3",
+      "category": "IA / Agents",
+      "source_slug": "doctolib-agentic-coding-platform-engineering",
+      "question": "Quel message Doctolib martèle-t-il sur le type d'équipe nécessaire pour réussir le passage à l'agentic coding ?",
+      "choices": [
+        "Il faut recruter massivement des spécialistes du machine learning",
+        "Il faut externaliser l'outillage à des prestataires IA",
+        "Il faut une équipe plateforme forte, pas des experts en IA",
+        "Il faut une équipe dédiée par modèle d'IA utilisé"
+      ],
+      "answer": 2,
+      "explanation": "Le frein étant les process (CI, env de dev, libs partagées), c'est une équipe plateforme solide qui débloque le potentiel des agents, pas des experts en IA.",
+      "more": {
+        "label": "Talk Devoxx (YouTube)",
+        "url": "https://www.youtube.com/watch?v=NLg8As47Y84"
+      }
+    },
+    {
+      "id": "gstack-4",
+      "category": "IA / Agents",
+      "source_slug": "gstack",
+      "question": "Comment peut-on décrire gstack, l'outil open source créé par Garry Tan ?",
+      "choices": [
+        "Un service cloud payant d'hébergement d'agents autonomes",
+        "Un IDE web qui remplace VS Code pour le développement assisté par IA",
+        "Un modèle de langage spécialisé dans la génération de code",
+        "Une « software factory » qui transforme Claude Code en équipe d'ingénierie virtuelle autour d'un process de sprint"
+      ],
+      "answer": 3,
+      "explanation": "gstack fournit 23 skills et 8 outils CLI organisés autour du flux Penser → Planifier → Construire → Examiner → Tester → Livrer → Réfléchir, sous licence MIT.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/garrytan/gstack/tree/main"
+      }
+    },
+    {
+      "id": "endorphine-utmb-maths-mestrallet-5",
+      "category": "Data / Sport",
+      "source_slug": "endorphine-utmb-maths-mestrallet",
+      "question": "Dans l'approche data de Joseph Mestrallet (UTMB), qu'est-ce que le « jumeau numérique » de l'athlète ?",
+      "choices": [
+        "Un avatar 3D utilisé pour la communication des sponsors",
+        "Un second coureur réel servant de lièvre pendant la course",
+        "Une montre connectée qui recopie les réglages de l'athlète",
+        "Un clone construit à partir d'une cinquantaine de paramètres physiologiques, pour simuler des changements sans risquer de blesser l'athlète réel"
+      ],
+      "answer": 3,
+      "explanation": "Le digital twin agrège une cinquantaine de paramètres (raideur tendineuse, bilans sanguins, taux de transpiration, réponses cardiaques…) afin de tester des scénarios sans risque pour l'athlète.",
+      "more": {
+        "label": "Podcast Endorphine (Apple)",
+        "url": "https://podcasts.apple.com/fr/podcast/endorphine-par-running-addict/id1722410749?i=1000724412911"
+      }
+    },
+    {
+      "id": "endorphine-utmb-maths-mestrallet-6",
+      "category": "Data / Sport",
+      "source_slug": "endorphine-utmb-maths-mestrallet",
+      "question": "Comment le plan de pacing optimal de l'athlète est-il déterminé dans cette méthode ?",
+      "choices": [
+        "En lançant des milliers de jumeaux numériques à des allures différentes et en retenant celui qui finit premier tout en restant dans les bornes physiologiques",
+        "En copiant la stratégie du vainqueur de l'édition précédente",
+        "En se basant uniquement sur la fréquence cardiaque cible",
+        "En laissant l'athlète courir au ressenti sans contrainte"
+      ],
+      "answer": 0,
+      "explanation": "Des milliers de clones (ordre de grandeur 7 000–10 000) simulent des allures variées ; le clone « gagnant » (anecdote : le n°1283) fournit les temps de passage, travaillés jusqu'au temps au 100 m.",
+      "more": {
+        "label": "Podcast Endorphine (Apple)",
+        "url": "https://podcasts.apple.com/fr/podcast/endorphine-par-running-addict/id1722410749?i=1000724412911"
+      }
+    },
+    {
+      "id": "hexa-ai-logo-maker-7",
+      "category": "Design",
+      "source_slug": "hexa-ai-logo-maker",
+      "question": "Que fait l'application mobile Hexa présentée dans le teardown Screensdesign ?",
+      "choices": [
+        "Elle crée des sites web complets à partir d'un brief",
+        "Elle automatise la publication sur les réseaux sociaux",
+        "Elle génère logos et visuels (signatures, mockups, fonds d'écran) à partir de descriptions textuelles",
+        "Elle convertit des photos en modèles 3D imprimables"
+      ],
+      "answer": 2,
+      "explanation": "Hexa est un « all-in-one AI designer » mobile : génération de logos, mockups produits, édition conversationnelle des designs et export 4K, sur un modèle de soft paywall (abonnement annuel).",
+      "more": {
+        "label": "Teardown Screensdesign",
+        "url": "https://screensdesign.com/showcase/hexa-ai-logo-maker-designer"
+      }
+    },
+    {
+      "id": "impeccable-8",
+      "category": "Design",
+      "source_slug": "impeccable",
+      "question": "Quelle est la particularité du détecteur d'anti-patterns design d'Impeccable ?",
+      "choices": [
+        "Il nécessite obligatoirement une clé API OpenAI pour fonctionner",
+        "Il analyse uniquement le backend et la base de données",
+        "Il corrige automatiquement le code sans intervention humaine",
+        "Il fonctionne de façon déterministe et sans clé API (41 règles, gratuit) ; seule la critique LLM requiert une clé"
+      ],
+      "answer": 3,
+      "explanation": "Le détecteur (`npx impeccable detect`) applique 41 règles déterministes (gradient purple→blue, cards dans des cards…) sans clé ; seule la critique par LLM demande une API key.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/pbakaus/impeccable"
+      }
+    },
+    {
+      "id": "impeccable-9",
+      "category": "Design",
+      "source_slug": "impeccable",
+      "question": "Comment se présente Impeccable dans l'écosystème des outils de développement assisté par IA ?",
+      "choices": [
+        "Un skill de design pour agents IA qui contrôle la qualité du frontend généré (anti « look IA générique »)",
+        "Un service SaaS de design facturé à l'usage",
+        "Un linter de qualité de code général, tous langages confondus",
+        "Un framework CSS concurrent de Tailwind"
+      ],
+      "answer": 0,
+      "explanation": "Impeccable est un skill (Claude Code, Cursor, Gemini CLI…) offrant 23 commandes via `/impeccable` ; il cible le design/frontend, pas la qualité de code générale.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/pbakaus/impeccable"
+      }
+    },
+    {
+      "id": "ios-hig-design-10",
+      "category": "Design",
+      "source_slug": "ios-hig-design",
+      "question": "Sur quels trois piliers du design d'Apple le skill ios-hig-design s'appuie-t-il ?",
+      "choices": [
+        "Cohérence, modularité et réutilisabilité",
+        "Clarté, déférence et profondeur (clarity, deference, depth)",
+        "Couleur, typographie et iconographie",
+        "Vitesse, sécurité et accessibilité"
+      ],
+      "answer": 1,
+      "explanation": "Ce skill cadre la création d'interfaces iOS natives sur les trois piliers des Human Interface Guidelines — clarté, déférence et profondeur — et note la conformité d'une interface de 0 à 10.",
+      "more": {
+        "label": "Fiche skills.sh",
+        "url": "https://www.skills.sh/wondelai/skills/ios-hig-design"
+      }
+    },
+    {
+      "id": "keypo-cli-11",
+      "category": "Sécurité",
+      "source_slug": "keypo-cli",
+      "question": "Sur quelle technologie keypo-signer s'appuie-t-il pour protéger les secrets ?",
+      "choices": [
+        "Le Secure Enclave d'Apple : clés P-256 générées et conservées dans le matériel, jamais écrites en clair sur disque",
+        "Un coffre-fort cloud chiffré hébergé chez keypo-us",
+        "Le module TPM standard des PC Windows",
+        "Un simple fichier .env chiffré avec une passphrase"
+      ],
+      "answer": 0,
+      "explanation": "keypo-signer (écrit en Swift, macOS) génère des clés P-256 hardware-bound dans le Secure Enclave (chiffrement ECIES) ; les clés ne quittent jamais l'enclave en clair.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/keypo-us/keypo-cli/tree/main/keypo-signer"
+      }
+    },
+    {
+      "id": "keypo-cli-12",
+      "category": "Sécurité",
+      "source_slug": "keypo-cli",
+      "question": "Quelle est une limite importante de keypo-signer ?",
+      "choices": [
+        "Il ne permet pas d'injecter les secrets dans une commande",
+        "Il stocke les secrets en clair dans iCloud",
+        "Il ne supporte aucune authentification biométrique",
+        "Il est limité à macOS sur Apple Silicon (M1+, macOS 14+), donc inutilisable sur Linux ou en CI cloud"
+      ],
+      "answer": 3,
+      "explanation": "Réservé au poste de dev macOS Apple Silicon : inutilisable sur Linux/CI. Autre risque signalé : la politique biométrique devient définitivement inaccessible si les empreintes Touch ID sont ré-enregistrées.",
+      "more": {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/keypo-us/keypo-cli/tree/main/keypo-signer"
+      }
     }
   ]
 }
